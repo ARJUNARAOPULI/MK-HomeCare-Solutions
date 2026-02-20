@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="C:\Users\hp\Downloads\mk home care image.jpeg">
+<meta charset="UTF-8">
+<title>MK HomeCare Premium</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --primary:#00b4d8;
+  --secondary:#03045e;
+  --accent:#90e0ef;
+  --dark:#0f172a;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Poppins,sans-serif;background:#f1f5f9;color:var(--dark);scroll-behavior:smooth}
+
+
+#loader{
+ position:fixed;
+ inset:0;
+ background:#020617;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ z-index:9999;
+}
+.loader-circle{
+ width:70px;height:70px;border-radius:50%;
+ border:6px solid rgba(255,255,255,.1);
+ border-top:6px solid var(--primary);
+ animation:spin 1s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+
+header{
+ background:rgba(3,4,94,.9);
+ backdrop-filter:blur(10px);
+ position:sticky;top:0;z-index:1000;
+}
+header .container{
+ max-width:1200px;margin:auto;padding:15px 20px;
+ display:flex;justify-content:space-between;align-items:center;
+}
+header h1{color:#fff}
+
+nav{display:flex;gap:25px}
+nav a{color:#fff;text-decoration:none;font-weight:500}
+
+.menu-btn{
+ display:none;font-size:26px;color:#fff;cursor:pointer;
+}
+
+@media(max-width:768px){
+ nav{
+  position:absolute;
+  top:70px;right:0;
+  background:#020617;
+  flex-direction:column;
+  width:200px;
+  padding:20px;
+  transform:translateX(100%);
+  transition:.4s;
+ }
+ nav.show{transform:translateX(0)}
+ .menu-btn{display:block}
+}
+
+
+.hero{
+ height:85vh;
+ background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),url("https://thumbs.dreamstime.com/b/cleaning-cart-loaded-mop-broom-stands-hallway-office-building-copy-space-high-321808365.jpg") center/cover;
+ display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;
+}
+.hero h2{
+  font-size:3rem;
+  margin-bottom:15px;
+  color: white;
+}
+.hero button{
+ padding:15px 40px;border:none;border-radius:40px;
+ background:linear-gradient(135deg,var(--primary),var(--accent));
+ font-weight:600;cursor:pointer;
+ transition:.3s;
+}
+.hero button:hover{transform:scale(1.05)}
+
+section{padding:90px 20px}
+.container{max-width:1200px;margin:auto}
+section h2{text-align:center;font-size:2.6rem;margin-bottom:60px;color:#03045e}
+
+
+
+.services-scroll{display:flex;gap:18px;overflow-x:auto}
+.service-mini{
+ min-width:280px;background:#fff;border-radius:20px;
+ box-shadow:0 20px 50px rgba(0,0,0,.15);
+ text-decoration:none;color:inherit;overflow:hidden;
+ transition:.4s;
+}
+.service-mini:hover{
+ transform:translateY(-12px) scale(1.02);
+ box-shadow:0 35px 70px rgba(0,0,0,.25);
+}
+.service-mini img{width:100%;height:190px;object-fit:cover}
+.service-mini h4{text-align:center;padding:18px}
+
+
+.why-section{
+ background:linear-gradient(135deg,#00b4d8,#03045e);
+ color:#fff;
+}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:30px}
+.why-card{
+ padding:40px 25px;border-radius:25px;text-align:center;
+ background:rgba(255,255,255,.12);
+ backdrop-filter:blur(10px);
+ transition:.4s;
+}
+.why-card:hover{transform:translateY(-12px)}
+.icon{font-size:42px;margin-bottom:15px}
+
+
+.reviews-wrapper{
+  display:flex;
+  gap:40px;
+  align-items:flex-start;
+  justify-content:space-between;
+  flex-wrap:wrap;
+}
+
+
+.reviews-left{
+  flex:1;
+}
+
+.reviews-row{
+  display:flex;
+  gap:15px;
+}
+
+.review-card{
+  background:#fff;
+  padding:15px;
+  border-radius:12px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.1);
+  min-width:160px;
+}
+
+
+.reviews-right{
+  flex:1;
+  background:#fff;
+  padding:5px;
+  border-radius:15px;
+  box-shadow:0 4px 2px rgba(0,0,0,0.1);
+}
+
+.reviews-right form{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+   height: 200px;
+}
+
+.reviews-right input,
+.reviews-right textarea,
+.reviews-right select{
+  padding:10px;
+  border:1px solid #ccc;
+  border-radius:8px;
+  font-family:inherit;
+}
+
+.reviews-right button{
+  padding:12px;
+  background:#00b4d8;
+  border:none;
+  color:white;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.reviews-right button:hover{
+  background:#0096c7;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .reviews-wrapper{
+    flex-direction:column;
+  }
+  .reviews-row{
+    flex-wrap:wrap;
+  }
+}
+
+.contact form{
+ max-width:450px;margin:auto;background:#fff;
+ padding:40px;border-radius:25px;
+ box-shadow:0 25px 60px rgba(0,0,0,.2);
+}
+.contact input{
+ width:100%;padding:14px;margin:12px 0;
+ border-radius:10px;border:1px solid #ccc;
+}
+.contact button{
+ width:100%;padding:14px;border:none;border-radius:40px;
+ background:linear-gradient(135deg,var(--primary),var(--accent));
+ font-weight:600;cursor:pointer;
+}
+
+.footer{background:#020617;color:#fff;padding:60px 20px 20px}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;margin-bottom:30px}
+.footer h4{color:#90e0ef;margin-bottom:12px}
+.footer a{color:#ddd;text-decoration:none;display:block;margin-bottom:8px}
+.copyright{text-align:center;border-top:1px solid rgba(255,255,255,.15);padding-top:15px;color:#aaa}
+
+.fade{opacity:0;transform:translateY(40px);transition:1s}
+.fade.show{opacity:1;transform:translateY(0)}
+
+
+.service-mini{
+  transition:.25s;
+}
+.service-mini:active{
+  transform:scale(.96);
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="loader"><div class="loader-circle"></div></div>
+
+<header>
+<div class="container">
+<h1>MK HomeCare Solutions</h1>
+<div class="menu-btn" id="menuBtn">☰</div>
+<nav id="nav">
+<a href="#services">Services</a>
+<a href="#why">Why Us</a>
+<a href="#reviews">Reviews</a>
+<a href="#contact">Contact</a>
+</nav>
+</div>
+</header>
+
+<section class="hero">
+<div>
+<h2>Premium Cleaning Services</h2>
+<p>Luxury Shine • Trusted Staff • Best Price</p>
+<button onclick="openWhatsApp()">Book Now</button>
+</div>
+</section>
+
+<section id="services" class="fade">
+<div class="container">
+<h2>Our Services</h2>
+<div class="services-scroll">
+<a href="regular-cleaning.html" class="service-mini"><img src="https://www.shutterstock.com/shutterstock/videos/3468708573/thumb/12.jpg?ip=x480">
+  <h4>Home Cleaning</h4>
+</a>
+<a href="bathroom-cleaning.html" class="service-mini"><img src="https://media.istockphoto.com/id/1417833200/photo/happy-professional-cleaners-cleaning-a-bathroom-at-an-apartment.jpg?s=612x612&w=0&k=20&c=98suJNqwaQnlzReilcdcfGDz_G7QNGUmha2Gm-6Yzug=">
+  <h4>Bathroom Cleaning</h4>
+</a>
+<a href="kitchen-cleaning.html" class="service-mini"><img src="https://www.shutterstock.com/shutterstock/videos/3426706481/thumb/7.jpg?ip=x480">
+  <h4>Kitchen Cleaning</h4>
+</a>
+<a href="deep-cleaning.html" class="service-mini"><img src="https://t4.ftcdn.net/jpg/07/12/30/25/360_F_712302517_lO6zmNr10bBzJ7xSliw9eSmy7uSonI4x.jpg">
+  <h4>Deep Cleaning</h4>
+</a>
+</div>
+</div>
+</section>
+
+<section id="why" class="why-section fade">
+<div class="container">
+<h2>Why Choose Us</h2>
+<div class="why-grid">
+<div class="why-card"><div class="icon">👨‍🔧</div><h3>Experts</h3><p>Trained professionals</p></div>
+<div class="why-card"><div class="icon">⚡</div><h3>Fast</h3><p>Quick completion</p></div>
+<div class="why-card"><div class="icon">🌿</div><h3>Safe</h3><p>Eco products</p></div>
+<div class="why-card"><div class="icon">💎</div><h3>Premium</h3><p>Luxury results</p></div>
+</div>
+</div>
+</section>
+
+
+<section id="reviews" class="reviews fade">
+  <div class="container reviews-wrapper">
+
+
+    <div class="reviews-left">
+      <h2>Client Reviews</h2>
+      <div class="reviews-row">
+        <div class="review-card">★★★★★<p>Amazing cleaning</p></div>
+        <div class="review-card">★★★★★<p>Very professional</p></div>
+        <div class="review-card">★★★★☆<p>Highly recommended</p></div>
+      </div>
+    </div>
+
+
+    <div class="reviews-right">
+      <h2>Write a Review</h2>
+      <form>
+        <input type="text" placeholder="Your Name" required>
+        <textarea placeholder="Your Review" required></textarea>
+        <select>
+          <option>★★★★★</option>
+          <option>★★★★☆</option>
+          <option>★★★☆☆</option>
+          <option>★★☆☆☆</option>
+          <option>★☆☆☆☆</option>
+        </select>
+        <button type="submit">Submit Review</button>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+
+<section id="contact" class="contact fade">
+<div class="container">
+<h2>Book Service</h2>
+<form id="form">
+<input id="name" placeholder="Name" required>
+<input id="phone" placeholder="Phone" required>
+<button>Send Request</button>
+</form>
+</div>
+</section>
+
+<footer class="footer">
+<div class="container footer-grid">
+<div><h3>MK HomeCare Solutions</h3><p>Trusted cleaning services in Vizag.</p></div>
+<div><h4>Links</h4><a href="#services">Services</a><a href="#contact">Contact</a></div>
+<div><h4>Contact</h4><p>📞 +91 7702112171</p><p>📍 Vizag</p></div>
+</div>
+<div class="copyright">© 2026 MK HomeCare</div>
+</footer>
+
+<script>
+
+
+window.addEventListener("load",()=>loader.style.display="none");
+
+
+
+
+menuBtn.onclick=()=>nav.classList.toggle("show");
+
+
+
+
+
+function openWhatsApp(){
+ window.open("https://wa.me/919502891749?text=Hello I want cleaning service","_blank");
+}
+
+
+
+
+form.onsubmit=e=>{
+ e.preventDefault();
+ let n=name.value,p=phone.value;
+ open(`https://wa.me/919502891749?text=Name:${n}%0APhone:${p}`);
+}
+
+
+
+const obs=new IntersectionObserver(e=>{
+ e.forEach(x=>{if(x.isIntersecting)x.target.classList.add("show")})
+});
+document.querySelectorAll(".fade").forEach(el=>obs.observe(el));
+
+</script>
+
+</body>
+</html>
